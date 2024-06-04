@@ -58,7 +58,7 @@ class Contract:
 
     @classmethod
     def contracts_by_date(cls, date):
-        return [contract for contract in cls.all if contract.date == date]
+        return sorted([contract for contract in cls.all if contract.date == date], key=lambda x: x.date)
     
     def validate_author(self,author):
         if not isinstance(author,Author):
